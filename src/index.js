@@ -20,4 +20,40 @@ export const school = {
     6: new Student('Eugene', [97, 34, 78, 85, 98, 65]),
     7: new Student('Ivan', [76, 89, 78, 98, 98, 99, 89, 96]),
   },
+  get aGradeStudents () {
+    const studentArr = Object.values(school.students);
+    return studentArr.reduce((accum, { name, averageGrade }) => {
+      if (averageGrade >= 90 && averageGrade <= 100) {
+        accum.push(name);
+      }
+      return accum;
+    }, []).join(', ');
+  },
+  get bGradeStudents () {
+    const studentArr = Object.values(school.students);
+    return studentArr.reduce((accum, { name, averageGrade }) => {
+      if (averageGrade >= 75 && averageGrade <= 89) {
+        accum.push(name);
+      }
+      return accum;
+    }, []).join(', ');
+  },
+  get cGradeStudents () {
+    const studentArr = Object.values(school.students);
+    return studentArr.reduce((accum, { name, averageGrade }) => {
+      if (averageGrade >= 60 && averageGrade <= 74) {
+        accum.push(name);
+      }
+      return accum;
+    }, []).join(', ');
+  },
+  get dGradeStudents () {
+    const studentArr = Object.values(school.students);
+    return studentArr.reduce((accum, { name, averageGrade }) => {
+      if (averageGrade >= 0 && averageGrade <= 59) {
+        accum.push(name);
+      }
+      return accum;
+    }, []).join(', ');
+  }
 };
